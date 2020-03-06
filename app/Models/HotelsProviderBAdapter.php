@@ -29,7 +29,8 @@ class HotelsProviderBAdapter implements HotelInterface
 
     public function getPrice(): int
     {
-        return $this->hotel['Price'];
+        $discount = $this->hotel['discount'] ?? 0;
+        return (int)$this->hotel['Price'] - $discount;
 
     }
 
