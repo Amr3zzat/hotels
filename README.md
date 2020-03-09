@@ -17,6 +17,9 @@ $ php artisan serve
 
 The latest documentation is available [here](https://documenter.getpostman.com/view/5026193/SzRw3rNY?version=latest)
 
+## UML
+![Class Diagram](HotelsUml.png)
+
 ## Testing
 
 The application can be tested with Test Unit. In order to run test suite execute the following command:
