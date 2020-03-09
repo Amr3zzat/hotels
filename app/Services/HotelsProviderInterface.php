@@ -6,6 +6,6 @@ namespace App\Services;
 
 interface HotelsProviderInterface
 {
-    public function search($filters);
+    public function search($filters): ?array;
 
 }

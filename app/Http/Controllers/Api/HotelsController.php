@@ -30,7 +30,7 @@ class HotelsController extends Controller
         return response()->json($hotels, 200);
     }
 
-    private function sortByRate(&$hotels)
+    private function sortByRate(&$hotels): void
     {
         $rate = array_column($hotels, 'rate');
 

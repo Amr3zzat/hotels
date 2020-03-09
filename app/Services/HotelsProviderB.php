@@ -22,11 +22,11 @@ class HotelsProviderB implements HotelsProviderInterface
         $this->hotelViewRepository = $hotelViewRepository;
     }
 
-    public function search($filters)
+    public function search($filters): ?array
     {
         $hotels = $this->fetch($filters);
         if (null === $hotels) {
-            return;
+            return null;
         }
         $hotelsList = [];
         foreach ($hotels as $hotel) {
@@ -38,7 +38,7 @@ class HotelsProviderB implements HotelsProviderInterface
         return $hotelsList;
     }
 
-    private function fetch($filters)
+    private function fetch($filters): ?array
     {
         $query = ['dateFrom' => $filters['from_date:'],
             'dateTo' => $filters['to_date:'],
@@ -47,7 +47,7 @@ class HotelsProviderB implements HotelsProviderInterface
         ];
         $response = Http::get('http://www.mocky.io/v2/5e4010ad3300004200b04d15', $query);
         if (null === $response->body()) {
-            return;
+            return null;
         }
         return json_decode($response->body(), true);
     }
